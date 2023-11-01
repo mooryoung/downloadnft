@@ -72,7 +72,7 @@ def get_all_bayc_imgs():
     try:
         for i in range(10000):
             cid = get_bayc_json(i)['image'][7:]
-            myhash = down_img_by_ipfs('bayc', str(i), 'png', url=f'http://127.0.0.1:8081/ipfs/{cid}/')
+            myhash = down_img_by_ipfs('bayc', str(i), 'png', url=f'http://127.0.0.1:8080/ipfs/{cid}/')
             print('bayc' + str(i) + '.png', myhash)
     except Exception as e:
         print(e.args)
@@ -80,7 +80,7 @@ def get_all_bayc_imgs():
 
 # 【下载azuki】#########################################################################################
 # 下载某个azuki的图片
-def down_img_azuki(dir='azuki', number='0', img_type='png', url='http://127.0.0.1:8081/ipfs/QmYDvPAXtiJg7s8JdRBSLWdgSphQdac8j1YuQNNxcGE1hg/', isreturnhash=False):
+def down_img_azuki(dir='azuki', number='0', img_type='png', url='http://127.0.0.1:8080/ipfs/QmYDvPAXtiJg7s8JdRBSLWdgSphQdac8j1YuQNNxcGE1hg/', isreturnhash=False):
     try:
         filename = number + '.' + img_type
         r = requests.get(url+filename, allow_redirects=True, stream=True)
@@ -99,7 +99,7 @@ def down_img_azuki(dir='azuki', number='0', img_type='png', url='http://127.0.0.
 
 # 获取所有azuki的图片
 def get_all_azuki_imgs():
-    base_url = "http://127.0.0.1:8081/ipfs/QmYDvPAXtiJg7s8JdRBSLWdgSphQdac8j1YuQNNxcGE1hg/"   #AZUKI
+    base_url = "http://127.0.0.1:8080/ipfs/QmYDvPAXtiJg7s8JdRBSLWdgSphQdac8j1YuQNNxcGE1hg/"   #AZUKI
     try:
         for i in range(10000):
             myhash = down_img_azuki('azuki', str(i), 'png', url=base_url)
