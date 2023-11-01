@@ -109,5 +109,7 @@ def get_all_azuki_imgs():
 
 
 if __name__ == '__main__':
+    get_all_punk_imgs()
+    get_all_bayc_imgs()
     get_all_azuki_imgs()
     pass
